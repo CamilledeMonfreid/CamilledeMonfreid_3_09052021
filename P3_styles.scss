@@ -6,13 +6,64 @@ $grey: #eaeaea;
 $darkgrey: #353535;
 $lightgrey: #f6f6f6;
 $shadowgrey: #dbdbdb;
-/*/Variables*/
+/*Fin des variables*/
+
+/*Keyframes*/
+@keyframes spin{
+    0%{ 
+        transform: rotate(0deg); 
+        opacity: 1;
+    }
+    100%{
+        transform: rotate(360deg);
+        opacity: 0; 
+    }
+}
+
+@keyframes fadein{
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}   
+/*Fin des keyframes*/
+
+/*Loading spinner*/
+#loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: spinner 3s linear;
+    z-index: -1;
+}
+
+.spinner{
+    border: 6px solid $lightgrey; 
+    border-top: 6px solid $tertiaire;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear;
+    opacity: 0;
+}
+/*Fin du loading spinner*/
+
 
 /*Début des mises en forme générales*/
 body{
     font-family: 'Roboto', sans-serif;
 }
-
+.page{
+    z-index: 5;
+    animation: fadein 3s 2s ease-in-out backwards;
+}
+ 
 .bouton{
     text-decoration: none;
     font-size: small;
@@ -22,6 +73,10 @@ body{
     border-radius: 30px;
     margin-top: 10px;
     box-shadow: 10px 10px 10px $grey;
+    &:hover{
+        box-shadow: 10px 10px 10px $shadowgrey;
+        opacity: 90%;
+    }
 }
 /*Fin des mises en forme générales*/
 
@@ -29,10 +84,19 @@ body{
 header{
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 20px;
-
+    
     img{
         width: 50%;
+    }
+
+    a{
+        font-size: x-large;
+        position:absolute;
+        justify-content: flex-start;
+        color: $darkgrey;
+        left: 30px;
     }
 }
 /*Fin de la mise en forme du header*/
@@ -51,7 +115,6 @@ header{
         margin: 20px 5px 20px 20px;
     }
 }
-
 
 #description{
     display: flex;
@@ -75,8 +138,6 @@ header{
         padding: 0px 10px 20px 10px;
     }
 }
-
-
 /*Fin de la mise en forme de la section localisation et description du site*/
 
 /*Début des explications du fonctionnement du site*/
@@ -168,9 +229,18 @@ nav{
     margin: 0px 0px 20px 0px;
     width: 100%;
 
+    a{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 90%;
+    }
+
     img{
         object-fit: cover;
-        width: 90%;
+        display: flex;
+        justify-content: center;
+        width: 100%;
         height: 175px;
         border-radius:20px 20px 0px 0px;
         box-shadow: 3px 3px 10px $shadowgrey;
@@ -182,7 +252,7 @@ nav{
         grid-template-rows: repeat(2,1fr);
         padding: 15px;
         background-color: white;
-        width: calc(90% - 30px);
+        width: calc(100% - 30px);
         border-radius:0px 0px 20px 20px;
         box-shadow: 3px 3px 10px $shadowgrey;
         
@@ -200,6 +270,19 @@ nav{
             color: black;
             font-weight: 300;
         }
+
+        .coeur1{
+            opacity: 0;
+        }
+        
+        .coeur1:hover{
+            opacity: 1;
+            transition: all 0.3s linear 0s;
+            background: linear-gradient($primaire, $secondaire);
+            background-clip: border-box;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         
         i{
             display: flex;
@@ -208,13 +291,6 @@ nav{
             align-self: center;
             justify-self: flex-end;
             color: $darkgrey;
-        }
-
-        &--like
-        {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
         }
     }
 }
@@ -225,6 +301,8 @@ footer{
     background-color: $darkgrey;
     color: white;
     padding: 20px;
+    position: relative;
+    z-index: 1;
     
     a{
         text-decoration: none;
@@ -232,6 +310,10 @@ footer{
         font-size: small;
         font-weight: 400;
         margin: 1px;
+        
+        &:hover{
+            color: $tertiaire;
+        }
     }
 
     h6{
