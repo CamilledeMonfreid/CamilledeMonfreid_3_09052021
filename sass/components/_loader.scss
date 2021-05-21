@@ -1,0 +1,23 @@
+@use '../abstracts/' as *;
+
+/* Design du loading spinner */
+
+#loading{
+    display: flex;
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    transition: spinner 3s linear;
+    @include centrer ;
+}
+
+.spinner{
+    border: 6px solid $lightgrey; 
+    border-top: 6px solid $tertiaire;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear;
+    opacity: 0;
+}

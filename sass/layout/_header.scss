@@ -1,0 +1,25 @@
+@use '../abstracts/' as *;
+
+/* Design du header */
+
+header{
+    display: flex;
+    @include centrer ;
+    margin: 20px;
+    
+    img{
+        width: 50%;
+    }
+}
+
+@media (min-width:500px){
+    header img{
+        width: 40%;
+    }    
+}
+
+@media (min-width:1000px){
+    header img{
+        width: 25%;
+    }    
+}
