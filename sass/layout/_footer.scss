@@ -1,31 +1,27 @@
+/* Design footer */
 @use '../abstracts/' as *;
 
-/* Design footer */
-
-footer{
+footer{ /* Position générale et fond gris */
     position: relative;
     z-index: 1;
     padding: 20px;
     background-color: $darkgrey;
-    color: white;
+
+    h6{ /* Couleur du titre */
+        margin-bottom: 10px;
+        color: white;
+    }
     
-    a{
+    a{ /* Couleur et survol des liens */
         text-decoration: none;
-        font-size: small;
-        font-weight: 400;
         margin: 1px;
         color: white;
-        
         &:hover{
             color: $tertiaire;
         }
     }
 
-    h6{
-        margin-bottom: 10px;
-    }
-
-    .footer__contact{
+    .footer__contact{ /* Disposition des éléments avec une icône */
         display: flex;
 
         p{
@@ -34,7 +30,10 @@ footer{
     }
 }
 
-@media (min-width:500px){
+@media (min-width:500px){ 
+    footer p{
+        font-size: small;
+    }
     #footer__content{
         display: flex;
         justify-content: space-between;

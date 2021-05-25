@@ -1,6 +1,5 @@
-@use '../abstracts/' as *;
-
 /* Design du loading spinner */
+@use '../abstracts/' as *;
 
 #loading{
     display: flex;
@@ -8,16 +7,18 @@
     z-index: -1;
     height: 100%;
     width: 100%;
-    transition: spinner 3s linear;
+    transition: spinner 1s linear;
     @include centrer ;
+
+    .spinner{
+        border: 6px solid $lightgrey; 
+        border-top: 6px solid $tertiaire;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spinner 1s linear;
+        opacity: 0;
+    }
 }
 
-.spinner{
-    border: 6px solid $lightgrey; 
-    border-top: 6px solid $tertiaire;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spinner 2s linear;
-    opacity: 0;
-}
+

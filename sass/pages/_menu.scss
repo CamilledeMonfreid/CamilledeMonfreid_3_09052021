@@ -1,234 +1,235 @@
+/* Mise en forme des pages de menu */
 @use '../abstracts/' as *;
 @use '../components/' as *;
-/* Header*/
-#menu{
-     header a{ /* Ajout du bouton retour */
-        font-size: x-large;
-        position:absolute;
-        justify-content: flex-start;
-        color: $darkgrey;
-        left: 30px;
+
+#restaurant{
+
+    #menu__article{ /* illustration du restaurant */
+        z-index: 4;
+        img{
+            width: 100%;
+            height: 200px;
+            object-fit: cover ;
+        }
     }
 
-/* Illustration du restaurant */
-#menu__article{
-    z-index: 4;
-    img{
+    #menu__section{ /* mise en forme de la section contenant la carte */
+        justify-content: center;
+        position: relative;
+        z-index: 3;
+        top:-30px;
+        bottom: calc(100% + 30px);
         width: 100%;
-        height: 200px;
-        object-fit: cover ;
+        height: 100%;
+        padding-top: 30px;
+        border-radius: 25px 25px 0px 0px;
+        background-color: $lightgrey;
+        @include colonne;
     }
-}
 
-
-/* Contenu de la carte */
-#menu__section{
-    justify-content: center;
-    z-index: 3;
-    position: relative;
-    top:-30px;
-    bottom: calc(100% + 30px);
-    width: 100%;
-    height: 100%;
-    padding-top: 30px;
-    border-radius: 25px 25px 0px 0px;
-    background-color: $lightgrey;
-    @include colonne;
-}
-
-#commander{ /* Bouton commander */
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-        
-    .bouton{
+    #commander{ /* ajustement du bouton "Commander" */
         display: flex;
         justify-content: center;
-        width: 25%;
-    }
-}
-    
-#nomrestaurant{ /* Nom du restaurant et like */
-    display: grid;
-    grid-template-columns: 77% 23%;
-    grid-template-rows: 1fr;
-    @include like;
-
-    h6{
-        grid-row: 1 / 2;
-        grid-column: 1 / 2;
-        justify-self: center;
-        padding-left: 5px;
-        font-size: x-large
+        margin-bottom: 20px;
+            
+        .bouton{
+            display: flex;
+            justify-content: center;
+            width: 25%;
         }
+    }
         
+    #nomrestaurant{ /* nom du restaurant et like */
+        display: grid;
+        grid-template-columns: 77% 23%;
+        grid-template-rows: 1fr;
+        @include like;
+
+        h6{
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+            padding-left: 5px;
+            justify-self: center;
+            font-size: x-large
+        }
+            
         i{
             @include fontlike;
-            color: $darkgrey;
             font-size: x-large;   
         }  
     }
 
-.carte{ /* Design des cartes */
-    justify-content: center;
-    align-self: center;
-    margin: 20px 20px 20px 20px;
-    width: calc(100% - 25px);
-    @include colonne;
-        
-    a{
-        text-decoration: none;
-        color: black;
-    }
-        
-    hr{
-        height: 5px;
-        width: 10%;
-        justify-self: start;
-        margin:0px;
-        border:none;
-        border-bottom: $tertiaire solid 3px;
-        color: $tertiaire;
-    }
-
-    h5{
-        justify-self: center;
-        margin-top: 20px;
-    } 
-
-    &__contenu{
-        display: grid;
-        grid-template-columns: 85% 15%;
-        grid-template-rows: 1fr;
-        width: 100%;
-        margin-right: 0px;
-        padding: 5px;
-        border-radius:10px;
-        background-color: white;
-        @include centrer;
-        @include ombre(darken($grey,20%));
-            
-        &--titre{
-            grid-column: 1/3;
-            grid-row: 1/2;
-            justify-self: start;
-            align-self: center;
-            padding: 5px 0px 5px 5px;
-            font-weight: 500;
-            font-size: medium;    
+    .carte{ /* design des cartes */
+        justify-content: center;
+        align-self: center;
+        margin: 20px;
+        width: calc(100% - 25px);
+        @include colonne;
+        a{
+            text-decoration: none;
+            color: black;
         }
-
-        p{
-            font-weight: 100;
-            font-size: small;
-            padding: 5px 0px 5px 5px;
-        }
-            
-        &--prix{
-            font-size: small;
-            font-weight: 500;
+        
+        /*titre*/
+        h5{
             justify-self: center;
-        }
-    }
-}
-
-.carte{ /* Affichage des cartes */
-
-    .one{
-        animation: fadein 0.5s 1s ease-in-out backwards;
-        &__plats{
-            animation: fadein 0.5s 1.4s ease-in-out backwards;
-        }
-        &__desserts{
-            animation: fadein 0.5s 1.8s ease-in-out backwards;
-        }
-    }
-
-    .two{
-        animation: fadein 0.5s 1.2s ease-in-out backwards; 
-        &__plats{
-            animation: fadein 0.5s 1.4s ease-in-out backwards;
-        }    
-        &__desserts {
-            animation: fadein 0.5s 2s ease-in-out backwards;
-        }    
-    }   
-
-    .three{
-        animation: fadein 0.5s 1.4s ease-in-out backwards;  
-        &__plats{
-            animation: fadein 0.5s 1.4s ease-in-out backwards;
-        }   
-        &__desserts {
-            animation: fadein 0.5s 2.2s ease-in-out backwards;
+            margin-top: 20px;
         } 
-    }    
-}
+        hr{
+            justify-self: start;
+            height: 5px;
+            width: 10%;
+            margin:0px;
+            border:none;
+            border-bottom: $tertiaire solid 3px;
+            color: $tertiaire;
+        }
 
-.carte__animation{ /* Sélection des cartes */
-    display: flex;
-    margin: 20px 0px 0px 0px ;
-    width: 100%;
-    justify-content: space-between;
-    
-    
+        /*contenu de la carte*/
+        &__contenu{
+            display: grid;
+            grid-template-columns: 85% 15%;
+            grid-template-rows: 1fr;
+            padding: 5px;
+            width: 100%;
+            border-radius:10px;
+            background-color: white;
+            @include centrer;
+            @include ombre(darken($grey,7%));
+                
+            &--titre{ /* nom du plat */
+                grid-column: 1/3;
+                grid-row: 1/2;
+                justify-self: start;
+                align-self: center;
+                padding: 5px 0px 5px 5px;
+                font-weight: 500;
+                font-size: medium;    
+            }
 
-    .check{
-        opacity: 0;
-        width: 0;
-        
-        
+            p{ /* description du plat */
+                font-weight: 100;
+                font-size: small;
+                padding: 5px 0px 5px 5px;
+            }
+                
+            &--prix{ /* prix du plat*/
+                font-size: small;
+                font-weight: 500;
+                justify-self: center;
+            }
+        }
     }
 
-    &:hover{
-        box-shadow: 3px 10px 10px darken($grey,20%);
-        border-radius: 10px;
-        .carte__contenu{
-            width: 75%;
-            margin: 0px ;
-            padding-right: 0px;
-            border-radius:10px 0px 0px 10px;
-            height: 50px;
-            transition: width linear 500ms;
-            
-            
-            &--titre, p{
-                margin-right: 5px;
-                white-space: nowrap; 
-                overflow: hidden;
-                text-overflow: ellipsis; 
-                width: 100%;
+    .carte{ /* animation d'affichage de la carte */
+        .one{
+            animation: fadein 0.5s 1s ease-in-out backwards;
+            &__plats{
+                animation: fadein 0.5s 1.4s ease-in-out backwards;
+            }
+            &__desserts{
+                animation: fadein 0.5s 2s ease-in-out backwards;
             }
         }
-    
-        .check {
-            display: flex;
-            margin: 0px;
-            align-self: center;
-            justify-self: center;
-            width: 25%;
-            border-radius: 0px 10px 10px 0px;
-            background-color: $tertiaire;
-            opacity: 1;
-            
-            transition: width linear 500ms;
-            
+        .two{
+            animation: fadein 0.5s 1.2s ease-in-out backwards; 
+            &__plats{
+                animation: fadein 0.5s 1.6s ease-in-out backwards;
+            }    
+            &__desserts {
+                animation: fadein 0.5s 2.2s ease-in-out backwards;
+            }    
+        }   
+        .three{
+            animation: fadein 0.5s 1.4s ease-in-out backwards;  
+            &__plats{
+                animation: fadein 0.5s 1.8s ease-in-out backwards;
+            }   
+            &__desserts {
+                animation: fadein 0.5s 2.4s ease-in-out backwards;
+            } 
+        }
+        .four{
+            animation: fadein 0.5s 1.6s ease-in-out backwards;  
+            &__plats{
+                animation: fadein 0.5s 2s ease-in-out backwards;
+            }   
+            &__desserts {
+                animation: fadein 0.5s 2.6s ease-in-out backwards;
+            } 
+        }
+    }
 
+    .animation{ /* animation de sélection des plats */
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        width: 100%;
+        
+        .check{
+            opacity: 0;
+            width: 0;
             i{
-                display: flex;
-                justify-content: center;
-                width: 100%;
-                height: 100%;
-                padding: 21px 0px 21px 0px;
-                font-size: large;
-                color: white;
-                animation: spin 500ms linear;
+                font-size: 0;
             }
         }
-    }   
+
+        &:hover{
+            @include ombre(darken($grey,7%));
+            border-radius: 10px;
+            .carte__contenu{
+                margin: 0px ;
+                padding-right: 0px;
+                width: 75%;
+                height: 50px;
+                border-radius:10px 0px 0px 10px;
+                transition: width linear 500ms;
+                
+                &--titre, p{
+                    margin-right: 5px;
+                    white-space: nowrap; 
+                    overflow: hidden;
+                    text-overflow: ellipsis; 
+                    width: 100%;
+                }
+            }
+            .check {
+                display: flex;
+                align-self: center;
+                justify-self: center;
+                width: 25%;
+                border-radius: 0px 10px 10px 0px;
+                background-color: $tertiaire;
+                opacity: 1;
+                transition: width linear 500ms;
+                i{
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                    padding: 21px 0px;
+                    font-size: large;
+                    color: white;
+                    animation: spin 500ms linear;
+                }
+            }
+        }   
+    }
+
+    #menu__footer{ /* footer */
+        margin-top: -30px;
+    }
 }
-/* Footer */
-#menu__footer{
-    margin-top: -30px;
-}
+
+@media (min-width:1000px){
+    #restaurant .carte{
+        align-self: flex-start;
+    }
+
+    #menu__section--contenu{
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        
+    }
 }

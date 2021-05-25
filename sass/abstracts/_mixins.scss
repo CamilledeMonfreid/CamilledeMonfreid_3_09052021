@@ -1,38 +1,36 @@
+/* Mixins */
 @use './variables' as *;
 
-/* Mixins */
-
-@mixin centrer{
+@mixin centrer{ /* Permet de centrer verticalement et horizontalement un élément */
     justify-content: center;
     align-items: center;
 }
 
-@mixin ombre($colour: $grey){
+@mixin ombre($colour: $grey){ /* Caractéristiques des box-shadow */
     box-shadow: 3px 10px 10px $colour;
 }
 
-@mixin colonne{
+@mixin colonne{ /* Permet de positionner les éléments en colonne */
     display: flex;
     flex-direction: column;
 }
 
-@mixin like {
+@mixin like { /* Permet le remplissage du like avec une couleur graduée */
     .coeur1{
         opacity: 0;
+
+        &:hover{
+            opacity: 1;
+            transition: all 0.3s linear 0s;
+            background: linear-gradient($primaire, $secondaire);
+            background-clip: border-box;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     }
-    
-    .coeur1:hover{
-        opacity: 1;
-        transition: all 0.3s linear 0s;
-        background: linear-gradient($primaire, $secondaire);
-        background-clip: border-box;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    
 }
 
-@mixin fontlike {
+@mixin fontlike { /* Permet la mise en forme du like */
     display: flex;
     align-self: center;
     grid-row: 1 / 3;
@@ -40,23 +38,18 @@
     color: $darkgrey;
 }
 
-@mixin cardanim{
+@mixin cardanim{ /* Permet l'apparition progressive des éléments de la carte */
     .one{
-            
         animation: fadein 0.5s 1s ease-in-out backwards;
-        
         &__plats{
             animation: fadein 0.5s 1.4s ease-in-out backwards;
         }
-
         &__desserts{
             animation: fadein 0.5s 1.8s ease-in-out backwards;
         }
-
     }
 
     .two{
-        
         animation: fadein 0.5s 1.2s ease-in-out backwards; 
         &__plats{
             animation: fadein 0.5s 1.4s ease-in-out backwards;
@@ -68,7 +61,6 @@
     
     .three
     {
-        
         animation: fadein 0.5s 1.4s ease-in-out backwards;  
         &__plats{
             animation: fadein 0.5s 1.4s ease-in-out backwards;

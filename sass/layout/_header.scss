@@ -1,14 +1,21 @@
+/* Design du header */
 @use '../abstracts/' as *;
 
-/* Design du header */
-
-header{
+header{ /* Position et taille du logo */
     display: flex;
-    @include centrer ;
     margin: 20px;
+    @include centrer ;
     
     img{
         width: 50%;
+    }
+    
+    a{ /* Ajout du bouton retour */
+        font-size: x-large;
+        position:absolute;
+        justify-content: flex-start;
+        color: $darkgrey;
+        left: 30px;
     }
 }
 

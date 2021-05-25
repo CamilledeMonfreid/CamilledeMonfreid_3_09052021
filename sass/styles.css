@@ -1,6 +1,7 @@
 @charset "UTF-8";
-/* Keyframes*/
+/* Keyframes */
 @-webkit-keyframes spinner {
+  /* Permet la rotation et disparition du loading spinner */
   0% {
     transform: rotate(0deg);
     opacity: 1;
@@ -11,6 +12,7 @@
   }
 }
 @keyframes spinner {
+  /* Permet la rotation et disparition du loading spinner */
   0% {
     transform: rotate(0deg);
     opacity: 1;
@@ -21,6 +23,7 @@
   }
 }
 @-webkit-keyframes spin {
+  /* Permet la rotation d'un élément */
   0% {
     transform: rotate(0deg);
   }
@@ -29,6 +32,7 @@
   }
 }
 @keyframes spin {
+  /* Permet la rotation d'un élément */
   0% {
     transform: rotate(0deg);
   }
@@ -37,6 +41,7 @@
   }
 }
 @-webkit-keyframes fadein {
+  /* Permet une apparition en fondu */
   from {
     opacity: 0;
   }
@@ -45,6 +50,7 @@
   }
 }
 @keyframes fadein {
+  /* Permet une apparition en fondu */
   from {
     opacity: 0;
   }
@@ -52,13 +58,14 @@
     opacity: 1;
   }
 }
+/* Couleurs du site */
 /* Mixins */
-/*abstracts*/
-/* Mise en page générales */
+/*index abstracts*/
 .page {
+  /* Position et apparition progressive de la page */
   z-index: 2;
-  -webkit-animation: fadein 3s 2s ease-in-out backwards;
-          animation: fadein 3s 2s ease-in-out backwards;
+  -webkit-animation: fadein 1s 1s ease-in-out backwards;
+          animation: fadein 1s 1s ease-in-out backwards;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -115,7 +122,7 @@ table {
   border-spacing: 0;
 }
 
-/* Typographies de ohmyfood */
+/* Typographies du site */
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -154,7 +161,7 @@ p {
   font-size: medium;
 }
 
-/*base*/
+/* index base */
 /* Design des boutons du site */
 .bouton {
   margin-top: 10px;
@@ -164,10 +171,12 @@ p {
   font-size: small;
   color: white;
   background: linear-gradient(#FF79DA, #9356DC);
+  /* Caractéristiques des box-shadow */
   box-shadow: 3px 10px 10px #eaeaea;
 }
 .bouton:hover {
-  box-shadow: 3px 10px 10px #b7b7b7;
+  /* Caractéristiques des box-shadow */
+  box-shadow: 3px 10px 10px #d8d8d8;
   opacity: 90%;
 }
 
@@ -178,45 +187,47 @@ p {
   z-index: -1;
   height: 100%;
   width: 100%;
-  transition: spinner 3s linear;
+  transition: spinner 1s linear;
+  /* Permet de centrer verticalement et horizontalement un élément */
   justify-content: center;
   align-items: center;
 }
-
-.spinner {
+#loading .spinner {
   border: 6px solid #f6f6f6;
   border-top: 6px solid #99E2D0;
   border-radius: 50%;
   width: 120px;
   height: 120px;
-  -webkit-animation: spinner 2s linear;
-          animation: spinner 2s linear;
+  -webkit-animation: spinner 1s linear;
+          animation: spinner 1s linear;
   opacity: 0;
 }
 
-/*components*/
+/* index components */
 /* Design footer */
 footer {
+  /* Position générale et fond gris */
   position: relative;
   z-index: 1;
   padding: 20px;
   background-color: #353535;
+}
+footer h6 {
+  /* Couleur du titre */
+  margin-bottom: 10px;
   color: white;
 }
 footer a {
+  /* Couleur et survol des liens */
   text-decoration: none;
-  font-size: small;
-  font-weight: 400;
   margin: 1px;
   color: white;
 }
 footer a:hover {
   color: #99E2D0;
 }
-footer h6 {
-  margin-bottom: 10px;
-}
 footer .footer__contact {
+  /* Disposition des éléments avec une icône */
   display: flex;
 }
 footer .footer__contact p {
@@ -224,6 +235,10 @@ footer .footer__contact p {
 }
 
 @media (min-width: 500px) {
+  footer p {
+    font-size: small;
+  }
+
   #footer__content {
     display: flex;
     justify-content: space-between;
@@ -232,13 +247,23 @@ footer .footer__contact p {
 }
 /* Design du header */
 header {
+  /* Position et taille du logo */
   display: flex;
+  margin: 20px;
+  /* Permet de centrer verticalement et horizontalement un élément */
   justify-content: center;
   align-items: center;
-  margin: 20px;
 }
 header img {
   width: 50%;
+}
+header a {
+  /* Ajout du bouton retour */
+  font-size: x-large;
+  position: absolute;
+  justify-content: flex-start;
+  color: #353535;
+  left: 30px;
 }
 
 @media (min-width: 500px) {
@@ -251,14 +276,15 @@ header img {
     width: 25%;
   }
 }
-/*layout*/
-/*Début de la mise en forme de la section localisation et description du site*/
+/* index layout */
+/* Mise en forme de la page d'accueil */
 #localisation {
+  /* Bannière de localisation */
   display: flex;
-  width: 100%;
   color: #353535;
   background-color: #eaeaea;
   box-shadow: inset 0px 5px 10px -10px #353535;
+  /* Permet de centrer verticalement et horizontalement un élément */
   justify-content: center;
   align-items: center;
 }
@@ -267,10 +293,13 @@ header img {
 }
 
 #description {
-  padding: 50px 0px 50px 0px;
+  /* Zone de description */
+  padding: 50px 0px;
   background-color: #f6f6f6;
+  /* Permet de centrer verticalement et horizontalement un élément */
   justify-content: center;
   align-items: center;
+  /* Permet de positionner les éléments en colonne */
   display: flex;
   flex-direction: column;
 }
@@ -283,9 +312,9 @@ header img {
   padding: 0px 10px 20px 10px;
 }
 
-/*Fin de la mise en forme de la section localisation et description du site*/
-/*Début des explications du fonctionnement du site*/
 article {
+  /* Fonctionnement du site */
+  /* Permet de positionner les éléments en colonne */
   display: flex;
   flex-direction: column;
 }
@@ -293,12 +322,12 @@ article h2 {
   margin: 50px 20px 20px 20px;
 }
 
-.exp {
+.fonctionnement {
+  /* Permet de positionner les éléments en colonne */
   display: flex;
   flex-direction: column;
 }
-
-.explications {
+.fonctionnement__explications {
   display: flex;
   align-items: center;
   left: 10px;
@@ -306,45 +335,47 @@ article h2 {
   margin: 20px;
   border-radius: 20px;
 }
-.explications__chiffre {
+.fonctionnement__explications--chiffre {
   display: flex;
+  position: absolute;
+  margin-right: 15px;
   height: 25px;
   width: 25px;
-  margin-right: 15px;
   border-radius: 40px;
   color: white;
   background-color: #9356DC;
   font-size: small;
-  position: absolute;
+  /* Permet de centrer verticalement et horizontalement un élément */
   justify-content: center;
   align-items: center;
 }
-.explications__txt {
+.fonctionnement__explications--txt {
   display: flex;
   align-items: center;
-  width: 80%;
   margin: 10px;
   padding: 25px 20px 25px 20px;
+  width: 80%;
   border-radius: 20px;
   background-color: #f6f6f6;
-  box-shadow: 3px 10px 10px #dbdbdb;
+  /* Caractéristiques des box-shadow */
+  box-shadow: 3px 10px 10px #d8d8d8;
 }
-.explications__txt i {
+.fonctionnement__explications--txt i {
   padding: 0px 5px 0px 15px;
   color: #b7b7b7;
   font-size: large;
 }
-.explications__txt h4 {
+.fonctionnement__explications--txt h4 {
   padding: 0px 5px 0px 20px;
 }
 
-/*Fin des explications du fonctionnement du site*/
-/*Début des accès aux menus*/
 nav {
+  /* Navigation vers les menus */
   justify-content: center;
-  margin: 40px 0px 0px 0px;
+  margin-top: 40px;
   padding: 5px 0px 40px 0px;
   background-color: #f6f6f6;
+  /* Permet de positionner les éléments en colonne */
   display: flex;
   flex-direction: column;
 }
@@ -355,55 +386,46 @@ nav a {
   text-decoration: none;
 }
 
-.menu {
-  margin: 0px 0px 20px 0px;
+.menu__card {
+  /* Design des cards d'accès aux menus */
+  position: relative;
+  margin-bottom: 20px;
   width: 100%;
+  /* Permet de positionner les éléments en colonne */
   display: flex;
   flex-direction: column;
+  /* Permet de centrer verticalement et horizontalement un élément */
   justify-content: center;
   align-items: center;
-  position: relative;
 }
-.menu a {
+.menu__card:hover {
+  transform: scale(1.01);
+}
+.menu__card a {
   justify-content: center;
   width: 90%;
+  /* Permet de positionner les éléments en colonne */
   display: flex;
   flex-direction: column;
 }
-.menu img {
-  display: flex;
-  justify-content: center;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 175px;
-  border-radius: 20px 20px 0px 0px;
-  box-shadow: 3px 10px 10px #b7b7b7;
-}
-.menu span {
-  text-decoration: none;
-  font-size: small;
-  background-color: #98e1d1;
-  color: #149072;
-  position: absolute;
-  right: 50px;
-  top: 20px;
-  padding: 5px;
-}
-.menu__description {
+.menu__card--description {
+  /* Partie "texte" */
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   padding: 15px;
   width: calc(100% - 30px);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   border-radius: 0px 0px 20px 20px;
+  color: black;
   background-color: white;
-  box-shadow: 3px 10px 10px #b7b7b7;
+  /* Caractéristiques des box-shadow */
+  box-shadow: 3px 10px 10px #d8d8d8;
+  /* Permet le remplissage du like avec une couleur graduée */
 }
-.menu__description .coeur1 {
+.menu__card--description .coeur1 {
   opacity: 0;
 }
-.menu__description .coeur1:hover {
+.menu__card--description .coeur1:hover {
   opacity: 1;
   transition: all 0.3s linear 0s;
   background: linear-gradient(#9356DC, #FF79DA);
@@ -411,17 +433,16 @@ nav a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.menu__description h3 {
+.menu__card--description h3 {
   grid-row: 1/2;
   grid-column: 1/2;
-  color: black;
 }
-.menu__description p {
+.menu__card--description p {
   grid-row: 2/3;
   grid-column: 1/2;
-  color: black;
 }
-.menu__description i {
+.menu__card--description i {
+  /* Permet la mise en forme du like */
   display: flex;
   align-self: center;
   grid-row: 1/3;
@@ -430,64 +451,77 @@ nav a {
   justify-self: flex-end;
   color: #353535;
 }
+.menu__card img {
+  /* Partie "image" */
+  display: flex;
+  justify-content: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 175px;
+  border-radius: 20px 20px 0px 0px;
+  /* Caractéristiques des box-shadow */
+  box-shadow: 3px 10px 10px #d8d8d8;
+}
+.menu__card span {
+  /* Bandeau "Nouveau" */
+  position: absolute;
+  padding: 5px;
+  right: 50px;
+  top: 20px;
+  text-decoration: none;
+  font-size: small;
+  color: #149072;
+  background-color: #90f0d8;
+}
 
-/*Fin des accès aux menus*/
 @media (min-width: 500px) {
-  .exp {
+  .fonctionnement {
+    /* Permet de centrer verticalement et horizontalement un élément */
     justify-content: center;
     align-items: center;
   }
-  .exp__txt {
+  .fonctionnement__explications {
+    width: 70%;
+  }
+  .fonctionnement__explications--txt {
     align-items: center;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    align-items: center;
+    width: 100%;
   }
 }
 @media (min-width: 1000px) {
-  .exp {
+  .fonctionnement {
     flex-direction: row;
     width: 100%;
+    /* Permet de centrer verticalement et horizontalement un élément */
     justify-content: center;
     align-items: center;
   }
 
-  #men {
+  .menu {
     display: flex;
     flex-wrap: wrap;
   }
-  #men .menu {
+  .menu__card {
     width: 50%;
   }
 }
-/* Header*/
-#menu {
-  /* Illustration du restaurant */
-  /* Contenu de la carte */
-  /* Footer */
-}
-#menu header a {
-  /* Ajout du bouton retour */
-  font-size: x-large;
-  position: absolute;
-  justify-content: flex-start;
-  color: #353535;
-  left: 30px;
-}
-#menu #menu__article {
+/* Mise en forme des pages de menu */
+#restaurant #menu__article {
+  /* illustration du restaurant */
   z-index: 4;
 }
-#menu #menu__article img {
+#restaurant #menu__article img {
   width: 100%;
   height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-#menu #menu__section {
+#restaurant #menu__section {
+  /* mise en forme de la section contenant la carte */
   justify-content: center;
-  z-index: 3;
   position: relative;
+  z-index: 3;
   top: -30px;
   bottom: calc(100% + 30px);
   width: 100%;
@@ -495,30 +529,32 @@ nav a {
   padding-top: 30px;
   border-radius: 25px 25px 0px 0px;
   background-color: #f6f6f6;
+  /* Permet de positionner les éléments en colonne */
   display: flex;
   flex-direction: column;
 }
-#menu #commander {
-  /* Bouton commander */
+#restaurant #commander {
+  /* ajustement du bouton "Commander" */
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
-#menu #commander .bouton {
+#restaurant #commander .bouton {
   display: flex;
   justify-content: center;
   width: 25%;
 }
-#menu #nomrestaurant {
-  /* Nom du restaurant et like */
+#restaurant #nomrestaurant {
+  /* nom du restaurant et like */
   display: grid;
   grid-template-columns: 77% 23%;
   grid-template-rows: 1fr;
+  /* Permet le remplissage du like avec une couleur graduée */
 }
-#menu #nomrestaurant .coeur1 {
+#restaurant #nomrestaurant .coeur1 {
   opacity: 0;
 }
-#menu #nomrestaurant .coeur1:hover {
+#restaurant #nomrestaurant .coeur1:hover {
   opacity: 1;
   transition: all 0.3s linear 0s;
   background: linear-gradient(#9356DC, #FF79DA);
@@ -526,62 +562,67 @@ nav a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-#menu #nomrestaurant h6 {
+#restaurant #nomrestaurant h6 {
   grid-row: 1/2;
   grid-column: 1/2;
-  justify-self: center;
   padding-left: 5px;
+  justify-self: center;
   font-size: x-large;
 }
-#menu #nomrestaurant i {
+#restaurant #nomrestaurant i {
+  /* Permet la mise en forme du like */
   display: flex;
   align-self: center;
   grid-row: 1/3;
   grid-column: 2/3;
   color: #353535;
-  color: #353535;
   font-size: x-large;
 }
-#menu .carte {
-  /* Design des cartes */
+#restaurant .carte {
+  /* design des cartes */
   justify-content: center;
   align-self: center;
-  margin: 20px 20px 20px 20px;
+  margin: 20px;
   width: calc(100% - 25px);
+  /* Permet de positionner les éléments en colonne */
   display: flex;
   flex-direction: column;
+  /*titre*/
+  /*contenu de la carte*/
 }
-#menu .carte a {
+#restaurant .carte a {
   text-decoration: none;
   color: black;
 }
-#menu .carte hr {
+#restaurant .carte h5 {
+  justify-self: center;
+  margin-top: 20px;
+}
+#restaurant .carte hr {
+  justify-self: start;
   height: 5px;
   width: 10%;
-  justify-self: start;
   margin: 0px;
   border: none;
   border-bottom: #99E2D0 solid 3px;
   color: #99E2D0;
 }
-#menu .carte h5 {
-  justify-self: center;
-  margin-top: 20px;
-}
-#menu .carte__contenu {
+#restaurant .carte__contenu {
   display: grid;
   grid-template-columns: 85% 15%;
   grid-template-rows: 1fr;
-  width: 100%;
-  margin-right: 0px;
   padding: 5px;
+  width: 100%;
   border-radius: 10px;
   background-color: white;
+  /* Permet de centrer verticalement et horizontalement un élément */
   justify-content: center;
   align-items: center;
-  box-shadow: 3px 10px 10px #b7b7b7;
+  /* Caractéristiques des box-shadow */
+  box-shadow: 3px 10px 10px #d8d8d8;
 }
-#menu .carte__contenu--titre {
+#restaurant .carte__contenu--titre {
+  /* nom du plat */
   grid-column: 1/3;
   grid-row: 1/2;
   justify-self: start;
@@ -590,88 +631,105 @@ nav a {
   font-weight: 500;
   font-size: medium;
 }
-#menu .carte__contenu p {
+#restaurant .carte__contenu p {
+  /* description du plat */
   font-weight: 100;
   font-size: small;
   padding: 5px 0px 5px 5px;
 }
-#menu .carte__contenu--prix {
+#restaurant .carte__contenu--prix {
+  /* prix du plat*/
   font-size: small;
   font-weight: 500;
   justify-self: center;
 }
-#menu .carte {
-  /* Affichage des cartes */
+#restaurant .carte {
+  /* animation d'affichage de la carte */
 }
-#menu .carte .one {
+#restaurant .carte .one {
   -webkit-animation: fadein 0.5s 1s ease-in-out backwards;
           animation: fadein 0.5s 1s ease-in-out backwards;
 }
-#menu .carte .one__plats {
+#restaurant .carte .one__plats {
   -webkit-animation: fadein 0.5s 1.4s ease-in-out backwards;
           animation: fadein 0.5s 1.4s ease-in-out backwards;
 }
-#menu .carte .one__desserts {
-  -webkit-animation: fadein 0.5s 1.8s ease-in-out backwards;
-          animation: fadein 0.5s 1.8s ease-in-out backwards;
-}
-#menu .carte .two {
-  -webkit-animation: fadein 0.5s 1.2s ease-in-out backwards;
-          animation: fadein 0.5s 1.2s ease-in-out backwards;
-}
-#menu .carte .two__plats {
-  -webkit-animation: fadein 0.5s 1.4s ease-in-out backwards;
-          animation: fadein 0.5s 1.4s ease-in-out backwards;
-}
-#menu .carte .two__desserts {
+#restaurant .carte .one__desserts {
   -webkit-animation: fadein 0.5s 2s ease-in-out backwards;
           animation: fadein 0.5s 2s ease-in-out backwards;
 }
-#menu .carte .three {
-  -webkit-animation: fadein 0.5s 1.4s ease-in-out backwards;
-          animation: fadein 0.5s 1.4s ease-in-out backwards;
+#restaurant .carte .two {
+  -webkit-animation: fadein 0.5s 1.2s ease-in-out backwards;
+          animation: fadein 0.5s 1.2s ease-in-out backwards;
 }
-#menu .carte .three__plats {
-  -webkit-animation: fadein 0.5s 1.4s ease-in-out backwards;
-          animation: fadein 0.5s 1.4s ease-in-out backwards;
+#restaurant .carte .two__plats {
+  -webkit-animation: fadein 0.5s 1.6s ease-in-out backwards;
+          animation: fadein 0.5s 1.6s ease-in-out backwards;
 }
-#menu .carte .three__desserts {
+#restaurant .carte .two__desserts {
   -webkit-animation: fadein 0.5s 2.2s ease-in-out backwards;
           animation: fadein 0.5s 2.2s ease-in-out backwards;
 }
-#menu .carte__animation {
-  /* Sélection des cartes */
-  display: flex;
-  margin: 20px 0px 0px 0px;
-  width: 100%;
-  justify-content: space-between;
+#restaurant .carte .three {
+  -webkit-animation: fadein 0.5s 1.4s ease-in-out backwards;
+          animation: fadein 0.5s 1.4s ease-in-out backwards;
 }
-#menu .carte__animation .check {
+#restaurant .carte .three__plats {
+  -webkit-animation: fadein 0.5s 1.8s ease-in-out backwards;
+          animation: fadein 0.5s 1.8s ease-in-out backwards;
+}
+#restaurant .carte .three__desserts {
+  -webkit-animation: fadein 0.5s 2.4s ease-in-out backwards;
+          animation: fadein 0.5s 2.4s ease-in-out backwards;
+}
+#restaurant .carte .four {
+  -webkit-animation: fadein 0.5s 1.6s ease-in-out backwards;
+          animation: fadein 0.5s 1.6s ease-in-out backwards;
+}
+#restaurant .carte .four__plats {
+  -webkit-animation: fadein 0.5s 2s ease-in-out backwards;
+          animation: fadein 0.5s 2s ease-in-out backwards;
+}
+#restaurant .carte .four__desserts {
+  -webkit-animation: fadein 0.5s 2.6s ease-in-out backwards;
+          animation: fadein 0.5s 2.6s ease-in-out backwards;
+}
+#restaurant .animation {
+  /* animation de sélection des plats */
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 100%;
+}
+#restaurant .animation .check {
   opacity: 0;
   width: 0;
 }
-#menu .carte__animation:hover {
-  box-shadow: 3px 10px 10px #b7b7b7;
+#restaurant .animation .check i {
+  font-size: 0;
+}
+#restaurant .animation:hover {
+  /* Caractéristiques des box-shadow */
+  box-shadow: 3px 10px 10px #d8d8d8;
   border-radius: 10px;
 }
-#menu .carte__animation:hover .carte__contenu {
-  width: 75%;
+#restaurant .animation:hover .carte__contenu {
   margin: 0px;
   padding-right: 0px;
-  border-radius: 10px 0px 0px 10px;
+  width: 75%;
   height: 50px;
+  border-radius: 10px 0px 0px 10px;
   transition: width linear 500ms;
 }
-#menu .carte__animation:hover .carte__contenu--titre, #menu .carte__animation:hover .carte__contenu p {
+#restaurant .animation:hover .carte__contenu--titre, #restaurant .animation:hover .carte__contenu p {
   margin-right: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
 }
-#menu .carte__animation:hover .check {
+#restaurant .animation:hover .check {
   display: flex;
-  margin: 0px;
   align-self: center;
   justify-self: center;
   width: 25%;
@@ -680,19 +738,31 @@ nav a {
   opacity: 1;
   transition: width linear 500ms;
 }
-#menu .carte__animation:hover .check i {
+#restaurant .animation:hover .check i {
   display: flex;
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding: 21px 0px 21px 0px;
+  padding: 21px 0px;
   font-size: large;
   color: white;
   -webkit-animation: spin 500ms linear;
           animation: spin 500ms linear;
 }
-#menu #menu__footer {
+#restaurant #menu__footer {
+  /* footer */
   margin-top: -30px;
 }
 
-/*pages*//*# sourceMappingURL=styles.css.map */
+@media (min-width: 1000px) {
+  #restaurant .carte {
+    align-self: flex-start;
+  }
+
+  #menu__section--contenu {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+/* index pages *//*# sourceMappingURL=styles.css.map */
