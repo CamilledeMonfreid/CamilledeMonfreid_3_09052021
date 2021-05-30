@@ -369,6 +369,13 @@ article h2 {
   padding: 0px 5px 0px 20px;
 }
 
+.violet .fonctionnement__explications--txt {
+  background-color: #f2eafb;
+}
+.violet .fonctionnement__explications--txt i {
+  color: #9356DC;
+}
+
 nav {
   /* Navigation vers les menus */
   justify-content: center;
@@ -398,15 +405,15 @@ nav a {
   justify-content: center;
   align-items: center;
 }
-.menu__card:hover {
-  transform: scale(1.01);
-}
 .menu__card a {
   justify-content: center;
   width: 90%;
   /* Permet de positionner les éléments en colonne */
   display: flex;
   flex-direction: column;
+}
+.menu__card a:hover {
+  transform: scale(1.01);
 }
 .menu__card--description {
   /* Partie "texte" */
@@ -583,7 +590,7 @@ nav a {
   justify-content: center;
   align-self: center;
   margin: 20px;
-  width: calc(100% - 25px);
+  width: calc(100% - 40px);
   /* Permet de positionner les éléments en colonne */
   display: flex;
   flex-direction: column;

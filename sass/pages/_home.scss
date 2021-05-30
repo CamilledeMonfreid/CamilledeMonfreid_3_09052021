@@ -84,6 +84,17 @@ article{ /* Fonctionnement du site */
     }
 }
 
+.violet .fonctionnement__explications {
+    &--txt {
+        background-color: lighten($primaire,35%);
+        i {
+            
+            color: $primaire;
+            
+            }
+    }
+}
+
 nav{ /* Navigation vers les menus */
     justify-content: center;
     margin-top: 40px;
@@ -107,14 +118,13 @@ nav{ /* Navigation vers les menus */
     @include colonne ;
     @include centrer ;
 
-    &:hover{
-        transform: scale(1.01);
-    }
-
     a{
         justify-content: center;
         width: 90%;
         @include colonne ;
+        &:hover{
+            transform: scale(1.01);
+        }
     }
 
     &--description{ /* Partie "texte" */
