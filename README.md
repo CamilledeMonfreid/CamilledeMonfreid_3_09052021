@@ -1,4 +1,4 @@
-# Projet Openclassrooms N°2 : Ohmyfood
+# Projet Openclassrooms N°3 : Ohmyfood
 Le site est visible via le lien suivant : https://camilledemonfreid.github.io/CamilledeMonfreid_3_09052021/  
 
 ## Scénario
